@@ -15,6 +15,13 @@ Welcome to the Popholic Web Development Project! This project is a web-based pla
   - Apache
   - MySQL Database (PHPMyAdmin)
 
+## Getting Started
+
+1. Clone the repository or download the project files.
+2. Set up XAMPP with Apache and MySQL.
+3. Import the provided database into PHPMyAdmin.
+4. Run the project using your preferred web server.
+
 ## Test Accounts
 
 ### User Account
@@ -109,12 +116,6 @@ Welcome to the Popholic Web Development Project! This project is a web-based pla
 - Allows viewing and replying to customer enquiries via email.
 - Allows viewing and deleting customers' testimonial submissions.
 
-## Getting Started
-
-1. Clone the repository or download the project files.
-2. Set up XAMPP with Apache and MySQL.
-3. Import the provided database into PHPMyAdmin.
-4. Run the project using your preferred web server.
 
 ## License
 
