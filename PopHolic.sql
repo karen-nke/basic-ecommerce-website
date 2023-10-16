@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2021 at 06:17 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.1
+-- Generation Time: Oct 16, 2023 at 02:13 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `contact_form` (
   `customer_email` varchar(255) NOT NULL,
   `customer_phone` varchar(255) NOT NULL,
   `message` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `contact_form`
@@ -58,7 +58,7 @@ CREATE TABLE `customer_details` (
   `zip` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL,
   `country` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -72,7 +72,7 @@ CREATE TABLE `forum` (
   `questions` varchar(255) NOT NULL,
   `time` datetime NOT NULL DEFAULT current_timestamp(),
   `replies` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `forum`
@@ -80,7 +80,8 @@ CREATE TABLE `forum` (
 
 INSERT INTO `forum` (`id`, `name`, `questions`, `time`, `replies`) VALUES
 (1, 'Janice', 'How if I am finding that is not on the website. ', '2021-11-12 23:08:22', 'Yes, all our product sell in the website is authentic guarantee !'),
-(6, 'Merry', 'Are your product authentic and new?', '2021-11-17 00:50:15', 'Yes, all our product sell in the website is authentic guarantee !');
+(6, 'Merry', 'Are your product authentic and new?', '2021-11-17 00:50:15', 'Yes, all our product sell in the website is authentic guarantee !'),
+(9, 'Karen', 'How to order', '2021-11-17 10:12:26', 'Can add to cart and check out');
 
 -- --------------------------------------------------------
 
@@ -98,7 +99,7 @@ CREATE TABLE `Product` (
   `product_description` varchar(255) NOT NULL,
   `product_type` varchar(255) NOT NULL,
   `image` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Product`
@@ -119,7 +120,8 @@ INSERT INTO `Product` (`product_id`, `product_name`, `code`, `brand`, `product_c
 (27, 'Obanai Iguro', 'BP003', 'Banpresto', 'Demon Slayer', 85, 'Backorder', 'Backorder', 'Image/Banpresto/Obanai Iguro.png'),
 (28, 'Kyojuro Rengoku Qposket Petit', 'BP004', 'Banpresto', 'Demon Slayer', 65, 'Preorder', 'Preorder', 'Image/Banpresto/Kyojuro Rengoku Qposket Petit.png'),
 (29, 'Kid Loki', 'FP010', 'Funko', 'Funko Shop', 160, 'ETA: 3-4 weeks', 'Preorder', 'Image/Funko/Kid Loki.png'),
-(30, 'Insosuke Qposket', 'BP005', 'Banpresto', 'Demon Slayer', 85, 'Ready Stock ', 'Instock ', 'Image/Banpresto/Inosuke Qposket.jpg');
+(35, 'All Might', 'FP011', 'Funko', 'Preorder', 150, 'Eta 3-4weeks', 'Preorder', 'Image/Funko/All Might with bun.png'),
+(38, 'Chococat Sasuke', 'FP012', 'Funko', 'FYE', 145, 'ETA JAN 2021', 'Preorder', 'Image/Funko/Chococat Sasuke.png');
 
 -- --------------------------------------------------------
 
@@ -132,7 +134,7 @@ CREATE TABLE `testimonial` (
   `customer_name` varchar(255) NOT NULL,
   `item_purchase` varchar(255) NOT NULL,
   `comment` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `testimonial`
@@ -140,8 +142,6 @@ CREATE TABLE `testimonial` (
 
 INSERT INTO `testimonial` (`id`, `customer_name`, `item_purchase`, `comment`) VALUES
 (1, 'John ', 'Funko Pop Ichigo (AAA)', 'Item was nicely packed with bubble wrap and double box, I received in well condition. Recommended store to deal with, will support in the future. '),
-(2, 'Estelle', 'Funko Pop Aizawa ', 'Recommended place to shop for collectibles. Looking for some collectibles that are unlisted in the store, but the representative is very helpful to help me source for the product I looking for.'),
-(5, 'Karen', 'Aizawa', 'Very good item'),
 (6, 'Merry ', 'Midoriya QPosket', 'Very Cute Item. Product Is Authentic');
 
 -- --------------------------------------------------------
@@ -163,18 +163,15 @@ CREATE TABLE `users` (
   `Zip` int(11) DEFAULT NULL,
   `State` varchar(255) DEFAULT NULL,
   `Country` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `user_role_id`, `username`, `email`, `password`, `Name`, `Phone`, `Address`, `Street`, `Zip`, `State`, `Country`) VALUES
-(2, 1, 'admin', 'admin@popholic.my', 'e66055e8e308770492a44bf16e875127', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, NULL, 'JuzKarenn', 'juzkarenn0201@gmail.com', '589c7eed055db3df271dac2b0627ab55', 'Karen Ng', 123456789, 'My Address', 'Jalan ', 47500, 'Selangor', 'Malaysia'),
-(6, NULL, 'janice0420', 'janice@gmail.com', '87020c505e0b9bf7de34193746082c22', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(10, NULL, 'user1', 'user@gmail.com', '6edf26f6e0badff12fca32b16db38bf2', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(11, NULL, 'Testing1', 'testing1@gmail.com', 'ae8c47ebbf65d6c7dfb1d7a7910a74e2', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, 1, 'admin', 'admin@popholic.my', 'Admin1234', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, NULL, 'user', 'user@gmail.com', 'User1234', 'User', 123456789, 'user address', 'user street', 11111, 'User State', 'Malaysia');
 
 --
 -- Indexes for dumped tables
@@ -225,7 +222,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contact_form`
 --
 ALTER TABLE `contact_form`
-  MODIFY `enquiry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `enquiry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `customer_details`
@@ -237,13 +234,13 @@ ALTER TABLE `customer_details`
 -- AUTO_INCREMENT for table `forum`
 --
 ALTER TABLE `forum`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `Product`
 --
 ALTER TABLE `Product`
-  MODIFY `product_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `product_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `testimonial`
@@ -255,7 +252,7 @@ ALTER TABLE `testimonial`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
