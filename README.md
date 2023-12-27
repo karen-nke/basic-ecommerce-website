@@ -116,10 +116,7 @@ Welcome to the Popholic Web Development Project! This project is a web-based pla
 - Allows viewing and replying to customer enquiries via email.
 - Allows viewing and deleting customers' testimonial submissions.
 
-
-## License
-
-This Popholic Web Development Project is open-source and available under the [MIT License](LICENSE).
+_Coursework for WEB2202 Web Programming (August 2021 - December 2021)_
 
 
 
